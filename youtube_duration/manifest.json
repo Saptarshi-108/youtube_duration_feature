@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Loc-In",
+  "version": "1.0",
+  "description": "Shows the overall playlist duration from youtube videos, shows how much duration you have covered, hides all other videos not in the playlist from recommendations.",
+  "permissions": [],
+  "host_permissions": ["https://www.youtube.com/*"],
+  "content-scripts": [
+    {
+      "matches": ["https://www.youtube.com/playlist?*"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
