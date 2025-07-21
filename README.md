@@ -29,8 +29,7 @@ First, you need to get the extension files onto your computer:
 
 * **Option B: Clone with Git (For Developers)**
     ```bash
-    git clone [https://github.com/your-username/youtube-playlist-duration.git](https://github.com/your-username/youtube-playlist-duration.git)
-    # Replace 'your-username' with your actual GitHub username or the repository owner's username
+    git clone [https://github.com/Saptarshi-108/youtube-playlist-duration.git](https://github.com/Saptarshi-108/youtube-playlist-duration.git)
     ```
 
 ### 2. Load the Extension in Your Browser
