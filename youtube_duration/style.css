@@ -1,0 +1,21 @@
+/* Styling for the new duration display element */
+.yt-playlist-total-duration-display {
+    color: var(--yt-spec-text-primary); /* Use YouTube's primary text color */
+    font-size: 2em; /* Standard text size, adjust as desired */
+    font-weight: 600; /* Medium bold */
+    margin-top: 10px; /* Space it out from the metadata above */
+    display: block; /* Ensure it takes its own line */
+    /* Add any other styles to match YouTube's aesthetics */
+}
+
+/* Optional: Add a loading indicator */
+.yt-playlist-total-duration-display.loading {
+    opacity: 0.6;
+    font-style: italic;
+}
+
+/* Remove any previous h1 styling if you had it, as we're no longer injecting into an h1 */
+h1.yt-playlist-duration-h1 {
+    /* No longer needed, but if you have it, you can remove or comment out */
+    display: none; /* Hide if old element still exists */
+}

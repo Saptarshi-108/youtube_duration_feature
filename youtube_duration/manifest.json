@@ -1,16 +1,23 @@
 {
   "manifest_version": 3,
-  "name": "Loc-In",
+  "name": "YouTube Playlist Duration",
   "version": "1.0",
-  "description": "Shows the overall playlist duration from youtube videos, shows how much duration you have covered, hides all other videos not in the playlist from recommendations.",
+  "description": "Calculates and displays the total duration of YouTube playlist videos (excluding live streams) directly on the YouTube UI.",
   "permissions": [],
-  "host_permissions": ["https://www.youtube.com/*"],
-  "content-scripts": [
+  "host_permissions": [
+    "*://*.youtube.com/playlist*"
+  ],
+  "content_scripts": [
     {
       "matches": ["https://www.youtube.com/playlist?*"],
       "js": ["content.js"],
-      "css": ["styles.css"],
+      "css": ["style.css"],
       "run_at": "document_idle"
     }
-  ]
+  ],
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
 }
