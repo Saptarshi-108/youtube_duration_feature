@@ -1,21 +1,113 @@
-/* Styling for the new duration display element */
-.yt-playlist-total-duration-display {
-    color: var(--yt-spec-text-primary); /* Use YouTube's primary text color */
-    font-size: 2em; /* Standard text size, adjust as desired */
-    font-weight: 600; /* Medium bold */
-    margin-top: 10px; /* Space it out from the metadata above */
-    display: block; /* Ensure it takes its own line */
-    /* Add any other styles to match YouTube's aesthetics */
+/*
+ * Base styles for the YouTube Playlist Total Duration extension.
+ * This file contains styles for the custom button and the duration display text.
+ */
+
+/* =========================================================================== */
+/* Styles for the main duration display element (which now visually acts as the button) */
+/* This element is the <div> with ID 'yt-playlist-duration-display' */
+#yt-playlist-duration-display {
+    /* Reset all default browser styles for a consistent base on this div */
+    all: unset; 
+
+    /* Define intrinsic dimensions and display properties to make it button-like */
+    width: fit-content; /* Make width adapt to content (the duration text) */
+    min-width: 80px;   /* Minimum width for the button's design */
+    min-height: 30px;   /* Minimum height for the button's design */
+    padding: 6px 10px; /* Internal spacing around the text content */
+    
+    /* Text and cursor properties */
+    font-size: 15px; /* Larger text size for prominence */
+    font-weight: 500; /* Medium bold for readability */
+    color: var(--yt-spec-text-primary); /* Use YouTube's dynamic primary text color */
+    cursor: pointer;
+    white-space: nowrap; /* Prevent text from wrapping */
+    user-select: none; /* Prevent text selection */
+    -webkit-user-select: none;
+    touch-action: manipulation; /* For touch devices */
+    font-family: Roboto, Arial, sans-serif; /* Tries to match YouTube's font family */
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Optional: slight text shadow for readability */
+
+
+    /* Positioning and layering for this div and its pseudo-elements */
+    position: relative;
+    z-index: 1; /* Ensures the div's content (text) is above its own pseudo-elements */
+    background: transparent; /* No direct background on the div itself; pseudo-elements handle it */
+    border: none;
+    outline: none;
+
+    /* Flexbox for centering text content inside this div */
+    display: flex;
+    align-items: center;    /* Vertically center content */
+    justify-content: center; /* Horizontally center content */
+    text-align: center; /* Fallback for older browsers / if flex fails */
+
+    /* Integration with YouTube's UI (margins for spacing in the layout) */
+    margin-top: 16px; /* Provides spacing from elements above it in YouTube's layout */
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+    line-height: 1.2; /* Adjust line height for better appearance */
 }
 
-/* Optional: Add a loading indicator */
-.yt-playlist-total-duration-display.loading {
+/* Pseudo-element for the main background of the #yt-playlist-duration-display (acting as button) */
+#yt-playlist-duration-display::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: -1; /* Places this behind the div's actual text content */
+    transition: all .4s; /* Transition property for smooth changes */
+    transform: translate(0%, 0%);
+    width: 100%;
+    height: 100%;
+    background: #28282d; /* The solid background color of the button */
+    border-radius: 10px;
+}
+
+/* Pseudo-element for the blurred, translucent background effect of the #yt-playlist-duration-display (acting as button) */
+#yt-playlist-duration-display::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: -1; /* Places this behind the div's actual text content */
+    transition: all .4s; /* Transition property for smooth changes */
+    transform: translate(10px, 10px); /* Initial offset for the effect */
+    width: 35px;
+    height: 35px;
+    background: #ffffff15; /* Semi-transparent white */
+    backdrop-filter: blur(5px); /* Apply blur effect */
+    -webkit-backdrop-filter: blur(5px); /* For WebKit browsers */
+    border-radius: 50px; /* Initial round shape */
+}
+
+/* Hover effects for the #yt-playlist-duration-display's background elements */
+#yt-playlist-duration-display:hover::before {
+    transform: translate(5%, 20%);
+    width: 110%;
+    height: 110%;
+}
+
+#yt-playlist-duration-display:hover::after {
+    border-radius: 10px; /* Changes shape on hover */
+    transform: translate(0, 0); /* Moves to align with div on hover */
+    width: 100%;
+    height: 100%;
+}
+
+/* Active (click) effect for the #yt-playlist-duration-display */
+#yt-playlist-duration-display:active::after {
+    transition: 0s; /* Instant transition on click */
+    transform: translate(0, 5%);
+}
+
+/* Optional: Add a loading indicator effect for the display text (now the button) */
+#yt-playlist-duration-display.loading {
     opacity: 0.6;
     font-style: italic;
+    cursor: wait; /* Indicate a waiting state */
 }
 
-/* Remove any previous h1 styling if you had it, as we're no longer injecting into an h1 */
+/* Remove any previous h1 styling if you had it for older versions */
 h1.yt-playlist-duration-h1 {
-    /* No longer needed, but if you have it, you can remove or comment out */
-    display: none; /* Hide if old element still exists */
+    display: none; /* Ensure old elements are hidden if they somehow persist */
 }

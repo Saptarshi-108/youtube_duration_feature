@@ -200,7 +200,7 @@ window.addEventListener('load', () => {
     setTimeout(() => {
         calculateAndDisplayTotalDuration();
         observePlaylistChanges();
-    }, 2000); // 2-second initial delay
+    }, 500); // 2-second initial delay
 });
 
 // Observer to detect URL changes without a full page reload (typical for YouTube's SPA behavior)
