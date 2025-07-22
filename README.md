@@ -97,4 +97,4 @@ This means you **can delete the local `Youtubelist-duration-main` folder** from 
 
 ---
 
-Feel free to open an issue or submit a pull request if you have suggestions or find any bugs!
+Feel free to open an issue or submit a pull request if you have suggestions or find any bugs! (which I'm sure you'll find anyways).
