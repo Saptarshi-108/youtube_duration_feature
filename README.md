@@ -1,4 +1,4 @@
-# YouTube Playlist Total Duration (UI Integrated)
+# YouTube Playlist Total Duration
 
 This simple browser extension helps you quickly see the **total duration** of any YouTube playlist, seamlessly integrated directly into the playlist's header on YouTube. No more manual calculations or guessing!
 
@@ -8,8 +8,6 @@ This simple browser extension helps you quickly see the **total duration** of an
 * **Video Count:** Shows the total number of videos in the playlist.
 * **Live Video Exclusion:** Automatically excludes live streams from the total duration calculation.
 * **Dynamic Updates:** Automatically recalculates and updates the duration if videos are added, removed, or the page updates (e.g., infinite scrolling).
-* **UI Integrated:** The duration is displayed right within the playlist's main information section for a clean, native feel.
-* **Lightweight & Efficient:** Designed to be fast and not hog your browser's resources.
 
 ---
 
